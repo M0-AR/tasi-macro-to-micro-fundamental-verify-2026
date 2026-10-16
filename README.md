@@ -7,7 +7,15 @@
 
 > **Abstract.** 8 claims formalised · live GDP 2024 2.65% / 2025 4.50% · SAMA repo 4.50% / reverse 4.00% confirmed · TASI ~10,441 corroborated · P/E 16.4 & P/B 2.95 inside live 13–18× / 2.2–2.95× bands · discovery: TASI is a **bank trade (40.45%) with an oil hedge (12.64%)**, 15% discount to emerging peers despite stronger drawdown profile · 5 pre-registered hypotheses · one-command Docker repro · interactive web preview with quiz.
 
-**🌐 Live interactive version:** open [`preview.html`](preview.html) locally, or deploy in 1 minute via **Settings → Pages → Deploy from branch → `main` → `/docs`** then visit `https://<you>.github.io/<repo>/preview.html`. Also shipped as [`docs/preview.html`](docs/preview.html) + [`docs/index.html`](docs/index.html) so either Pages folder setting works.
+**🌐 Live interactive version (click to open in browser):**
+
+| Entry | URL | When it works |
+|-------|-----|---------------|
+| `/` (site home) | [https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/](https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/) | Source `/docs` **or** `/` (both ship `index.html`) — recommended: `/docs` |
+| `/preview.html` | [https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/preview.html](https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/preview.html) | Source `/docs` (repo `docs/preview.html` → serves at `/preview.html`) |
+| `/docs/preview.html` | [https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/docs/preview.html](https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/docs/preview.html) | Source `/` (root) (repo path mirrors URL) |
+
+> Local: open [`preview.html`](preview.html) or [`docs/preview.html`](docs/preview.html) directly. Pages: **Settings → Pages → Deploy from branch → `main` → `/docs`** (recommended; mirrors make `/` source work too).
 
 ![Demo — TASI drawdown + P/E payback](assets/demo.gif)
 
@@ -221,7 +229,11 @@ Evidence: `evidence/01..05_*.json` (timestamps + provenance). Deterministic unit
 ---
 
 ### 🌐 GitHub Pages deploy (2026, 1 minute)
-1. Push this repo to GitHub (include `docs/` + `assets/`).
-2. GitHub → **Settings → Pages → Deploy from branch** → Branch `main`, folder `/docs` (or `/ (root)` — we ship `index.html` at root too).
-3. Visit `https://<you>.github.io/<repo>/preview.html` (or `/` for the root `index.html`).
-4. Custom domain (optional): Pages → Custom domain → add `CNAME` + DNS record. HTTPS is automatic.
+1. Push this repo to GitHub (include `docs/` + `assets/` + `.nojekyll`).
+2. GitHub → **Settings → Pages → Deploy from branch** → Branch `main`, folder `/docs` (recommended; `/ (root)` also works via mirrors).
+3. Click to verify (wait 1–2 min after enabling, check Actions “pages build and deployment”):
+   - `/`: [https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/](https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/)
+   - `/preview.html`: [https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/preview.html](https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/preview.html)
+   - `/docs/preview.html`: [https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/docs/preview.html](https://m0-ar.github.io/tasi-macro-to-micro-fundamental-verify-2026/docs/preview.html)
+4. If one URL 404s, read it as source-mismatch: source `/docs` → repo `docs/x.html` serves at `/x.html`; source `/` → repo `docs/x.html` serves at `/docs/x.html`. Both mirrors ship, so recommended `/docs` is non-fatal if ignored.
+5. Custom domain (optional): Pages → Custom domain → add `CNAME` + DNS record. HTTPS is automatic.
