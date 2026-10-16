@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TASI Macro-to-Micro Fundamental Lab — Interactive Preview</title>
+<style>
+:root{--bg:#0b1220;--card:#111c33;--acc:#0b6e4f;--gold:#c9a227;--txt:#eaf0f7;--mut:#9fb0c7;--red:#c0392b;--pur:#7d3c98}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b1220,#0e1830);color:var(--txt)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+.hero{background:linear-gradient(135deg,#0b6e4f,#123a6d);border-radius:18px;padding:32px;color:#fff;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.hero h1{margin:0 0 8px;font-size:30px}.hero p{margin:6px 0;color:#e6f2ec}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:5px 10px;border-radius:999px;font-size:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid #22385f;border-radius:14px;padding:18px}
+.card h2{margin:0 0 10px;font-size:18px;color:#fff}.card p,.card li{color:var(--mut);line-height:1.6;font-size:14px}
+a{color:#7fd6a8}.btn{display:inline-block;background:var(--acc);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;margin:6px 6px 0 0}
+.btn.ghost{background:transparent;border:1px solid #3a5a8a}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid #22385f;padding:8px;text-align:left}th{color:#fff}code{background:#0a1526;padding:2px 6px;border-radius:6px;color:#9fe8b8}
+.quiz button{display:block;width:100%;text-align:left;margin:8px 0;padding:10px;border-radius:10px;border:1px solid #2c4a78;background:#0e1a34;color:var(--txt);cursor:pointer}
+.quiz button.correct{border-color:#2ecc71;background:#0f2f22}.quiz button.wrong{border-color:var(--red);background:#331212}
+.score{font-weight:800;color:var(--gold)}.steps{counter-reset:s}.step{background:#0e1a34;border-left:4px solid var(--acc);padding:12px;margin:10px 0;border-radius:8px}
+.kpi{display:flex;gap:12px;flex-wrap:wrap}.kpi div{background:#0e1a34;border:1px solid #22385f;border-radius:12px;padding:12px 16px;min-width:150px}.kpi b{font-size:20px;color:#fff}
+footer{margin-top:30px;color:var(--mut);font-size:12px}
+img.demo{width:100%;border-radius:12px;border:1px solid #2c4a78}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<h1>📈 TASI Macro-to-Micro Fundamental Lab</h1>
+<p><b>CEO summary:</b> We turn a Gulf-market investing lesson — <i>macro first, sectors second, companies last</i> — into numbers you can check. Every claim is verified against live public data. You learn P/E, P/B, pegs and concentration by doing, not memorizing. In 30 minutes you read TASI like a professional: cheap vs expensive, index vs market, future vs price.</p>
+<p><b>Abstract:</b> 8 claims formalised · live World Bank GDP 2024 2.65% / 2025 4.50% · SAMA 4.50%/4.00% confirmed · TASI ~10,441 corroborated · P/E 16.4 &amp; P/B 2.95 inside live bands · bank-trade-not-oil-trade discovery · 5 pre-registered hypotheses · 7/7 tests green · Docker one-command repro.</p>
+<div class="badges"><span class="badge">✅ 5/5 experiments</span><span class="badge">✅ 7/7 tests</span><span class="badge">✅ 8 claims adjudicated</span><span class="badge">🐳 Docker ready</span><span class="badge">📄 MIT</span><span class="badge">🌐 Pages ready</span></div>
+<p>
+<a class="btn" href="#beginner">🌱 Start beginner guide</a>
+<a class="btn ghost" href="#quiz">🧠 Take the 5-question quiz</a>
+<a class="btn ghost" href="#quickstart">🚀 Quickstart</a>
+<a class="btn ghost" href="https://github.com/">⭐ Star on GitHub</a>
+</p>
+</div>
+
+<div class="grid">
+<div class="card"><h2>🎬 Watch: 20-second demo</h2>
+<img class="demo" src="assets/demo.gif" alt="TASI drawdown and P/E payback animated demo"/>
+<p>TASI Jan 11,382 → Sep 10,441. P/E = payback years. Red = cyclical-cheap (verify!), green = market, purple = banks (premium).</p>
+</div>
+<div class="card"><h2>📊 KPIs at a glance</h2>
+<div class="kpi"><div><b>10,441</b><br/>TASI Sep-30-26</div><div><b>4.50%</b><br/>SAMA repo</div><div><b>3.75</b><br/>SAR peg</div><div><b>15.6×</b><br/>P/E TTM</div></div>
+<p>Financials <b>40.45%</b> &gt; Energy <b>12.64%</b> (Aramco 11.4%). Correlation EM 0.31 vs S&amp;P 0.43. 10-yr +135% USD.</p>
+</div>
+</div>
+
+<div class="card" id="quickstart" style="margin-top:16px"><h2>🚀 Quickstart (3 steps, 2 minutes)</h2>
+<p><code>docker compose up --build</code> — runs everything and writes <code>evidence/*.json</code>. Or local:</p>
+<p><code>pip install -r requirements.txt</code><br/><code>PYTHONPATH=. python experiments/01_verify_video_claims.py</code><br/><code>PYTHONPATH=. python -m pytest tests/ -q</code></p>
+<p>Open <code>evidence/01_video_claims.json</code> for verdicts. No keys needed (World Bank + public reports; Yahoo optional).</p>
+</div>
+
+<div class="card" id="beginner" style="margin-top:16px"><h2>🌱 Beginner guide — read this and you are a professional</h2>
+<h3 style="color:#fff">Let's work this out in a step-by-step way to be sure we have the right answer.</h3>
+<div class="step"><b>Step 1 — Macro: what country can pay?</b><br/>Check GDP growth (World Bank), inflation (&lt;2% good), SAMA rate (4.5% = restrictive). Peg 3.75 means Saudi mirrors America. High rates hurt builders, help banks — up to a point.</div>
+<div class="step"><b>Step 2 — Sectors: who leads?</b><br/>Banks 40% → credit first. Energy/materials → oil margins. Telecom/health/consumer → domestic demand (Vision 2030). REITs last (rate-sensitive). Never buy a stock before you name its sector.</div>
+<div class="step"><b>Step 3 — Index math: index ≠ market.</b><br/>TASI is cap-weighted: 2 giants can move 136 pts while 21 sectors fall. Like CIB in Egypt. Always check breadth + contributors, not just the headline.</div>
+<div class="step"><b>Step 4 — P/E: how many years to get money back?</b><br/>Price ÷ EPS. 100 ÷ 10 = 10 years. 100 ÷ 20 = 5 years. Low P/E (Bahri ~3–5×) is often a cyclical trough — check future margins, not just trailing.</div>
+<div class="step"><b>Step 5 — P/B: book is not market.</b><br/>Office 1m ÷ 20y depreciation → book 0, but market &gt;1m. So P/B 2–3× is normal for good banks. P/B &lt;1 (Cenomi 0.44) = flag distress or heavy assets — verify.</div>
+<div class="step"><b>Step 6 — Fair value: buy the future.</b><br/>Fair = future profits discounted. SNB fair 12,000 @16.1× vs 10,441 = ~15% upside <i>if</i> multiples normalise. Technicals tell <i>when</i>; fundamentals tell <i>what + why</i>.</div>
+<p>You now know more than most interview candidates: order matters, multiples need context, concentration misleads.</p>
+</div>
+
+<div class="grid">
+<div class="card"><h2>✨ Features</h2>
+<ul>
+<li>Claim-by-claim verification (8) with provenance + timestamps</li>
+<li>Macro→sectors→companies pipeline (WB, SAMA, IMF, 5 broker snapshots)</li>
+<li>No-lookahead walk-forward harness (PIT, 63d, 20bps, OOS, Bonferroni)</li>
+<li>Hidden-pattern suite H1–H5 (rotation, dispersion, peg-stress, oil-beta, cap-drag)</li>
+<li>Teaching formalisation: P/E payback, P/B depreciation, EY−repo spread</li>
+<li>Docker + Makefile one-command repro; 7 unit tests</li>
+</ul></div>
+<div class="card"><h2>👥 Who is this for? (user stories)</h2>
+<ul>
+<li><b>Beginner investor:</b> follow the 6 steps, pass the quiz, avoid “more shares = profit” trap.</li>
+<li><b>Finance student:</b> cite claim table + broker triangulation in coursework.</li>
+<li><b>Quant researcher:</b> fork walk-forward engine, plug Tadawul PIT panel, test H1–H5 formally.</li>
+<li><b>Teacher / creator:</b> use GIF + quiz in class; each lesson maps to evidence.</li>
+<li><b>Policy watcher:</b> track peg pass-through, deficit breakeven, Vision 2030 non-oil share.</li>
+</ul></div>
+</div>
+
+<div class="card" id="quiz" style="margin-top:16px"><h2>🧠 Interactive quiz — from zero to pro (5 questions)</h2>
+<div class="quiz" id="q"></div>
+<p class="score" id="score"></p>
+<script>
+const QA=[
+{q:"P/E 100 ÷ EPS 10 means?",a:["10 years to get money back","10 shares profit","10% yield"],c:0,why:"P/E = payback years at flat earnings."},
+{q:"Office 1m, 20y depreciation → book year 21?",a:["0 in books, but market >0","0 in market too","1m still"],c:0,why:"Book = historical cost minus depreciation; market differs. Hence P/B."},
+{q:"SAMA repo 4.5% with SAR peg means?",a:["Mirrors Fed; headwind for builders, NIM tailwind to a point","Free policy","No effect"],c:0,why:"Hard peg forces co-movement; credit channel."},
+{q:"TASI falls but your stock rises. Index = your stock?",a:["No — cap-weighted; 2 giants move 136pts","Yes always","Only on Mondays"],c:0,why:"Index ≠ breadth. Check contributors."},
+{q:"Bahri P/E ~3×. Auto-buy?",a:["No — verify cycle/margins; cheap often = trough","Yes, cheapest always wins","Only if P/B high"],c:0,why:"Trailing cheap + forward weak = value trap."}];
+let i=0,sc=0;const box=document.getElementById('q'),s=document.getElementById('score');
+function render(){if(i>=QA.length){s.textContent=`Score ${sc}/${QA.length} — ${sc===5?'Pro 🏆':sc>=3?'Almost pro 💪':'Reread beginner guide 🌱'}`;box.innerHTML+=`<p><a href="#beginner">↩ Back to guide</a></p>`;return;}
+const Q=QA[i];box.innerHTML=`<p><b>Q${i+1}. ${Q.q}</b></p>`+Q.a.map((t,k)=>`<button data-k="${k}">${t}</button>`).join('')+`<p style="color:#9fb0c7">${Q.why?'Hint: answer, then see why.':''}</p>`;
+box.querySelectorAll('button').forEach(b=>b.onclick=()=>{const k=+b.dataset.k;if(k===Q.c){sc++;b.classList.add('correct');}else{b.classList.add('wrong');box.querySelectorAll('button')[Q.c].classList.add('correct');}
+setTimeout(()=>{i++;render();},700);});}
+render();
+</script>
+</div>
+
+<div class="card" style="margin-top:16px"><h2>🔍 Verify (what we checked)</h2>
+<table><tr><th>Claim</th><th>Live</th><th>Verdict</th></tr>
+<tr><td>TASI ~10,500</td><td>10,441 Sep-30; ~10,139 Oct-14 low</td><td>Corroborated</td></tr>
+<tr><td>P/E 16.4 / P/B 2.95</td><td>13.43–17.65 / 2.2–2.84</td><td>Inside band</td></tr>
+<tr><td>SAMA 4.50/4.00, peg 3.75</td><td>Press N267877 + SPA</td><td>Confirmed</td></tr>
+<tr><td>GDP/non-oil/inflation</td><td>WB 2.65/4.50 + IMF 4.6/~4%/&lt;2%</td><td>Confirmed</td></tr>
+<tr><td>Macro→sectors→companies; concentration</td><td>40.45% Financials; 136-pt moves</td><td>Confirmed</td></tr>
+</table>
+<p>Full provenance + timestamps in <code>evidence/01..05_*.json</code>. Yahoo probes rate-limited on run day — disclosed, fallback dated.</p>
+</div>
+
+<div class="card" style="margin-top:16px"><h2>🌐 View as website (GitHub Pages — 2026)</h2>
+<p>This file <b>is</b> the site. Deploy in 1 minute:</p>
+<ol><li>Push repo to GitHub (include <code>docs/preview.html</code> copy + <code>assets/demo.gif</code>).</li>
+<li>GitHub → <b>Settings → Pages → Deploy from branch</b> → Branch <code>main</code>, folder <code>/docs</code> (or <code>/ (root)</code> if you place <code>index.html</code> at root).</li>
+<li>Open <code>https://&lt;you&gt;.github.io/&lt;repo&gt;/preview.html</code> (or <code>/</code> if <code>index.html</code>).</li>
+<li>Custom domain (optional): Pages → Custom domain → add CNAME + DNS.</li></ol>
+<p>We ship both <code>preview.html</code> (root) and <code>docs/preview.html</code> + <code>docs/index.html</code> redirect so either Pages setting works.</p>
+</div>
+
+<footer>Educational, not investment advice. Multiples need forward margins, leverage and governance checks. Buy the future — with point-in-time data. · MIT · Built for learners, students, quants, teachers.</footer>
+</div>
+</body>
+</html>

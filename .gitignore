@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.data/
+data/cache/
+evidence/*.json
+!evidence/.gitkeep
+.venv/
+.ipynb_checkpoints/

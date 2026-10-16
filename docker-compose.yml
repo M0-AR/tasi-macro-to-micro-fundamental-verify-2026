@@ -1,0 +1,29 @@
+services:
+  lab:
+    build: .
+    image: tasi-fundamental-lab:2026
+    container_name: tasi_lab
+    volumes:
+      - ./data:/app/data
+      - ./evidence:/app/evidence
+      - ./notebooks:/app/notebooks
+    environment:
+      - PYTHONPATH=/app
+      - TZ=UTC
+      - YF_CACHE_DIR=/tmp/yf_cache
+    command: ["make", "verify"]
+    networks: ["tasi-net"]
+  jupyter:
+    build: .
+    image: tasi-fundamental-lab:2026
+    ports: ["8888:8888"]
+    volumes:
+      - ./data:/app/data
+      - ./evidence:/app/evidence
+      - ./notebooks:/app/notebooks
+    command: ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+    profiles: ["jupyter"]
+    networks: ["tasi-net"]
+networks:
+  tasi-net:
+    driver: bridge
